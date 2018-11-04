@@ -6,7 +6,7 @@ module.exports = (Client) => {
   /* Client.Relationship.destroy(session, account.id)*/
   /*  UnFollows the "account.id"
 's profile          */
-/***************************************************/
+  /***************************************************/
 
   Client.findFollow = async (session, name) => {
     const account = await Client.Account.searchForUser(session, name);
@@ -42,9 +42,9 @@ module.exports = (Client) => {
 
   Client.waitMin = async (num) => {
     return new Promise(resolve => {
-        setTimeout(() => {
-            resolve('resolved');
-        }, num * 1000 * 60);
+      setTimeout(() => {
+        resolve('resolved');
+      }, num * 1000 * 60);
     });
   };
 
@@ -87,7 +87,10 @@ module.exports = (Client) => {
 
       await Client.Like.create(session, ids[i]);
       const media = await Client.Media.getById(session, ids[i]);
+      Client.likes.inc("likes");
       Client.logger.log(`Liked post by ${media.account.params.username}`);
+      Client.logger.log(`Liked ${Client.likes.get("likes")} posts`);
     }
-    Client.logger.log(`Done!`);  };
+    Client.logger.log(`Done!`);
+  };
 };

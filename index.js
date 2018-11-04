@@ -28,8 +28,15 @@ require("./modules/functions.js")(Client);
 // essentially saves a collection to disk.
 // This makes things extremely easy for setting dates which we can comapre
 // to later.
-Client.dates = new Enmap({
-  name: "dates"
+Client.likes = new Enmap({
+  name: "likes"
+});
+// Wait for initilalization 
+Client.likes.defer.then( () => {
+  if (Client.config.debug === true) {
+    Client.logger.log(`${Client.likes.size} keys loaded`, "debug");
+  }
+  Client.likes.set("likes", 0);
 });
 
 // And go for login
