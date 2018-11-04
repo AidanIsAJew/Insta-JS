@@ -1,9 +1,15 @@
 const config = {
   // Show debug output
-  "debug": true,
+  "debug": false,
 
   // The tag thats going to be liked
-  "tag": "like4likes",
+  // Some common tags are:
+  // like4likes
+  // likeforlikes
+  // follow4follows
+  // followforfollowback
+  // follow4followback
+  "tag": "likeforlikes",
 
   // The time, in minutes, that will be between each like
   // DO NOT PUT THIS BELOW 1
