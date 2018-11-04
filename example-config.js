@@ -1,5 +1,5 @@
 const config = {
-  "debug": true,
+  "debug": false,
 
   "tag": "like4likes",
 
