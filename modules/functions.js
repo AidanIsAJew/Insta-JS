@@ -89,7 +89,7 @@ module.exports = (Client) => {
       const media = await Client.Media.getById(session, ids[i]);
       Client.likes.inc("likes");
       Client.logger.log(`Liked post by ${media.account.params.username}`);
-      Client.logger.log(`Liked ${Client.likes.get("likes")} posts`);
+      Client.logger.log(`Liked ${Client.likes.get("likes")} post(s) so far`);
     }
     Client.logger.log(`Done!`);
   };
