@@ -71,9 +71,9 @@ module.exports = (Client) => {
         });
       });
 
-    const min = 2;
+    const min = Client.config.min;
     Client.logger.log(`Done! Fetched ${ids.length - 1} posts.`);
-    Client.logger.log(`Liking each posts with ${min} min interval between. Rate: ${60/min}/hr`)
+    Client.logger.log(`Liking each posts with ${min} min interval between. Rate: ${Math.floor(60/min)}/hr`)
     for (let i = 0; i < ids.length; i++) {
       if (Client.config.debug === true) {
         Client.logger.log(`Catching`, "debug");

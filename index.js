@@ -31,7 +31,7 @@ require("./modules/functions.js")(Client);
 Client.likes = new Enmap({
   name: "likes"
 });
-// Wait for initilalization 
+// Wait for initilalization
 Client.likes.defer.then( () => {
   if (Client.config.debug === true) {
     Client.logger.log(`${Client.likes.size} keys loaded`, "debug");
