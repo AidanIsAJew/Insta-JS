@@ -36,7 +36,7 @@ Client.likes.defer.then( () => {
   if (Client.config.debug === true) {
     Client.logger.log(`${Client.likes.size} keys loaded`, "debug");
   }
-  Client.likes.set("likes", 0);
+  Client.likes.ensure("likes", 0);
 });
 
 // And go for login

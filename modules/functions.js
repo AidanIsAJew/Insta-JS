@@ -75,6 +75,12 @@ module.exports = (Client) => {
     Client.logger.log(`Done! Fetched ${ids.length - 1} posts.`);
     Client.logger.log(`Liking each posts with ${min} min interval between. Rate: ${Math.floor(60/min)}/hr`)
     for (let i = 0; i < ids.length; i++) {
+      await Client.Like.create(session, ids[i]);
+      const media = await Client.Media.getById(session, ids[i]);
+      Client.likes.inc("likes");
+      Client.logger.log(`Liked post by ${media.account.params.username}`);
+      Client.logger.log(`Liked ${Client.likes.get("likes")} post(s) so far`);
+
       if (Client.config.debug === true) {
         Client.logger.log(`Catching`, "debug");
       }
@@ -84,12 +90,6 @@ module.exports = (Client) => {
       if (Client.config.debug === true) {
         Client.logger.log(`Resolved`, "debug");
       }
-
-      await Client.Like.create(session, ids[i]);
-      const media = await Client.Media.getById(session, ids[i]);
-      Client.likes.inc("likes");
-      Client.logger.log(`Liked post by ${media.account.params.username}`);
-      Client.logger.log(`Liked ${Client.likes.get("likes")} post(s) so far`);
     }
     Client.logger.log(`Done!`);
   };
