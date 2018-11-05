@@ -53,7 +53,7 @@ module.exports = (Client) => {
     const _ = require('lodash');
     const Promise = require('bluebird');
 
-    Client.logger.log(`Fetching posts tagged with #${Client.config.tag}`)
+    Client.logger.log(`Fetching posts tagged with #${Client.config.tag}`);
     let feed = new Client.Feed.TaggedMedia(session, Client.config.tag, 10);
     let ids = [];
 
@@ -73,7 +73,7 @@ module.exports = (Client) => {
 
     const min = Client.config.min;
     Client.logger.log(`Done! Fetched ${ids.length - 1} posts.`);
-    Client.logger.log(`Liking each posts with ${min} min interval between. Rate: ${Math.floor(60/min)}/hr`)
+    Client.logger.log(`Liking each posts with ${min} min interval between. Rate: ${Math.floor(60/min)}/hr`);
     for (let i = 0; i < ids.length; i++) {
       await Client.Like.create(session, ids[i]).catch(async function(error) {
         await Client.waitMin(1).catch(function(error) {

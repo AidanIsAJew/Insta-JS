@@ -32,7 +32,7 @@ Client.likes = new Enmap({
   name: "likes"
 });
 // Wait for initilalization
-Client.likes.defer.then( () => {
+Client.likes.defer.then(() => {
   if (Client.config.debug === true) {
     Client.logger.log(`${Client.likes.size} keys loaded`, "debug");
   }
@@ -42,15 +42,20 @@ Client.likes.defer.then( () => {
 // And go for login
 Client.Session.create(device, storage, Client.config.username, Client.config.password)
   .then(async function(session) {
-    Client.logger.log(`Logged in at ${session.device.username}`, "ready");
-    // Now you have a session, we can follow / unfollow, anything...
-    // And we want to follow Instagram official profile
+    try {
+      Client.logger.log(`Logged in at ${session.device.username}`, "ready");
+      // Now you have a session, we can follow / unfollow, anything...
+      // And we want to follow Instagram official profile
 
 
-    //60 × 60 seconds = 3600 seconds = 3600 × 1000 milliseconds = 3,600,000 ms + 10 (just in case...).
-    //const time = (60 * 60 * 1000) + 10
-    const time = (20 * 60 * 1000)
-    Client.everyHour(session);
-    setInterval(Client.everyHour, time, session);
-
+      //60 × 60 seconds = 3600 seconds = 3600 × 1000 milliseconds = 3,600,000 ms + 10 (just in case...).
+      //const time = (60 * 60 * 1000) + 10;
+      const time = (20 * 60 * 1000);
+      Client.everyHour(session).catch(function(error) {
+        Client.logger.log(error, "error");
+      });
+      setInterval(Client.everyHour, time, session);
+    } catch(error) {
+      Client.logger.log(error, "error");
+    }
   });
