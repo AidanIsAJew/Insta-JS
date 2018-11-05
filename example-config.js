@@ -12,8 +12,8 @@ const config = {
   "tag": "likeforlikes",
 
   // The time, in minutes, that will be between each like
-  // DO NOT PUT THIS BELOW 1
-  "min": 2,
+  // DO NOT PUT THIS AT 0
+  "min": 1,
 
   // Your instagram username
   "username": "INSTAGRAM_USERNAME",

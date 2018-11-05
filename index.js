@@ -48,7 +48,8 @@ Client.Session.create(device, storage, Client.config.username, Client.config.pas
 
 
     //60 × 60 seconds = 3600 seconds = 3600 × 1000 milliseconds = 3,600,000 ms + 10 (just in case...).
-    const time = (60 * 60 * 1000) + 10
+    //const time = (60 * 60 * 1000) + 10
+    const time = (20 * 60 * 1000)
     Client.everyHour(session);
     setInterval(Client.everyHour, time, session);
 
