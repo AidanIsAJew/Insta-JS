@@ -64,6 +64,9 @@ typings/
 # batch file
 .bat
 pull-push-git.bat
+PM2_Log.bat
+PM2_Start.bat
+PM2_Stop.bat
 
 # backup files
 .bak

@@ -80,6 +80,9 @@ module.exports = (Client) => {
           Client.logger.log(error, "error");
         });
         Client.logger.log(error, "error");
+        if (Client.config.pm2 === true) {
+          process.exit(1);
+        }
       });
       const media = await Client.Media.getById(session, ids[i]);
       Client.likes.inc("likes");

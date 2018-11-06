@@ -2,6 +2,9 @@ const config = {
   // Show debug output
   "debug": false,
 
+  // pm2
+  "pm2": false,
+
   // The tag thats going to be liked
   // Some common tags are:
   // like4likes
