@@ -17,7 +17,16 @@ Once finished:
 
 Run the `Node Start.bat`
 
-OR
+####OR
+
+- install (pm2(https://www.npmjs.com/package/pm2))
+- download my (pm2 scripts(https://github.com/AidanIsAJew/Insta-JS-pm2-scripts))
+- add `PM2_Log.bat`, `PM2_Start.bat` and `PM2_Stop.bat` to your project folder
+- change `"pm2": false,` to `"pm2": true,` in config.js
+
+(pm2 quick start guide(http://pm2.keymetrics.io/docs/usage/quick-start/))
+
+####OR
 
 In a command prompt, run the following command:
 `node index.js`
