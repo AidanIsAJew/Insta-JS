@@ -1,5 +1,8 @@
 # Insta-JS
-Instagram bot written in JavaScript
+A Instagram bot that automaticaly likes posts with certain hastags 
+
+Super usefull for getting likes and followers quickly
+
 ## Requirements
 
 - `git` command line ([Windows](https://git-scm.com/download/win)|[Linux](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)|[MacOS](https://git-scm.com/download/mac)) installed
